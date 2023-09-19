@@ -5,7 +5,6 @@ export function patchScreenshareQuality(framerate, height) {
     const StreamQuality = find(m => m.prototype?.getVideoQuality);
     const ASPECT_RATIO = screen.width / screen.height;
     const width = Math.round(height * ASPECT_RATIO);
-    console.log(StreamQuality)
 
     spitroast.after("getVideoQuality", StreamQuality.prototype, (response) => {
         response = {

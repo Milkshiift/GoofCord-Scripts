@@ -437,13 +437,12 @@ var getPatchFunc = (patchType) => (funcName, funcParent, callback, oneTime = fal
     const StreamQuality = find(m => m.prototype?.getVideoQuality);
     const ASPECT_RATIO = screen.width / screen.height;
     const width = Math.round(height * ASPECT_RATIO);
-    console.log(StreamQuality);
 
     after("getVideoQuality", StreamQuality.prototype, (response) => {
         response = {
             bitrateMin: 10000,
             bitrateMax: 10000,
-            localWant: 1,
+            localWant: 100,
             capture: {
                 framerate,
                 width,
@@ -461,9 +460,9 @@ var getPatchFunc = (patchType) => (funcName, funcParent, callback, oneTime = fal
     }, false);
     after("getQuality", StreamQuality.prototype, (response) => {
         response = {
-            bitrateMin: 10000, //500000
-            bitrateMax: 10000, //8000000
-            localWant: 1,
+            bitrateMin: 500000,
+            bitrateMax: 8000000,
+            localWant: 100,
             capture: {
                 framerate,
                 width,
