@@ -1,0 +1,22 @@
+{
+  "name": "GoofMod",
+  "version": "1.0.0",
+  "description": "GoofCord helper mod",
+  "main": "dist/bundle.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -cw"
+  },
+  "author": "smartfrigde",
+  "license": "OSL-3.0",
+  "dependencies": {
+    "rollup": "^3.26.0",
+    "rollup-plugin-serve": "^2.0.2",
+    "spitroast": "^1.4.3"
+  },
+  "packageManager": "pnpm@8.5.0",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.1.0"
+  }
+}

@@ -1,0 +1,8 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <scope name="Project Files" level="WEAK WARNING" enabled="false" />
+    </inspection_tool>
+  </profile>
+</component>
