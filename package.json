@@ -2,7 +2,7 @@
   "name": "GoofMod",
   "version": "1.0.0",
   "description": "GoofCord helper mod",
-  "main": "dist/bundle.js",
+  "main": "dist/0_goofmod.js",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
@@ -12,8 +12,7 @@
   "license": "OSL-3.0",
   "dependencies": {
     "rollup": "^3.29.2",
-    "rollup-plugin-serve": "^2.0.2",
-    "spitroast": "^1.4.3"
+    "rollup-plugin-serve": "^2.0.2"
   },
   "packageManager": "pnpm@8.5.0",
   "devDependencies": {

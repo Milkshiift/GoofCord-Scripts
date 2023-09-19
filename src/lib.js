@@ -17,14 +17,20 @@
 */
 
 import {cache, subscriptions} from "./webpack"
+import "./spitroast/index.js";
 
 export let SelectedGuildStore;
 export let FluxDispatcher;
 export let SettingsRouter;
 
+window.goofmod = {};
+
 export function log(data) {
     console.log("%c[GMHelper]", "color: #5865f2;", data);
 }
+window.goofmod.log = log;
+
+log("Loading...")
 
 export const filters = {
     byProps: (...props) =>
@@ -82,6 +88,7 @@ export function find(filter, getDefault = true, isWaitFor = false) {
 
     return isWaitFor ? [null, null] : null;
 }
+window.goofmod.find = find;
 
 /**
  * Find the first module that has the specified properties
@@ -89,6 +96,7 @@ export function find(filter, getDefault = true, isWaitFor = false) {
 export function findByProps(...props) {
     return find(filters.byProps(...props));
 }
+window.goofmod.findByProps = findByProps;
 
 const GET_KEY = Symbol.for("GoofMod_Helper.lazy.get");
 const CACHED_KEY = Symbol.for("GoofMod_Helper.lazy.cached");
@@ -119,6 +127,7 @@ export function proxyLazy(factory) {
 export function findLazy(filter, getDefault = true) {
     return proxyLazy(() => find(filter, getDefault));
 }
+window.goofmod.findLazy = findLazy;
 
 /**
  * Finds a mangled module by the provided code "code" (must be unique and can be anywhere in the module)
