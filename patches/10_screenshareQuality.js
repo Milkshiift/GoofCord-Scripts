@@ -1,5 +1,11 @@
+/**
+ * @name ScreenshareQualityPatch
+ * @description Allows you to modify screenshare quality
+ * @version 1.0.0
+ */
+
 function patchScreenshareQuality(framerate, height) {
-    window.goofmod.log("Loading screenshare quality patch...")
+    window.goofmod.log("[ScreenshareQualityPatch] Loading screenshare quality patch...")
     const StreamQuality = window.goofmod.find(m => m.prototype?.getVideoQuality);
     const ASPECT_RATIO = screen.width / screen.height;
     const width = Math.round(height * ASPECT_RATIO);
@@ -45,6 +51,6 @@ function patchScreenshareQuality(framerate, height) {
         return response;
     }, false)
 }
-patchScreenshareQuality(30,720);
+patchScreenshareQuality(30,720); // Setting default settings
 
 window.patchScreenshareQuality = patchScreenshareQuality;

@@ -1,4 +1,10 @@
-var goofmod=(function(exports){'use strict';/*
+var goofmod=(function(exports){'use strict';/**
+ * @name GoofMod
+ * @description Helper mod for GoofCord
+ * @version 1.0.0
+ */
+
+/*
  * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
