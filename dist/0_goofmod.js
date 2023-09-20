@@ -294,7 +294,7 @@ exports.SettingsRouter=void 0;
 window.goofmod = {};
 
 function log(data) {
-    console.log("%c[GMHelper]", "color: #5865f2;", data);
+    console.log("%c[GoofMod]", "color: #5865f2;", data);
 }
 window.goofmod.log = log;
 
