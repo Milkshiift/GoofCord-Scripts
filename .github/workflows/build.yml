@@ -29,6 +29,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ github.workspace }}/goofmod.zip
-          asset_name: goofmod
+          asset_name: goofmod.zip
           tag: "Build"
           overwrite: true
