@@ -1,0 +1,34 @@
+name: Build and Zip
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+            version: latest
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build app
+        run: pnpm run build
+
+      - name: Create Zip File
+        uses: montudor/action-zip@v1.0.0
+        with:
+          files: ./dist ./patches
+          zipFile: 'goofmod.zip'
+
+      - name: Upload Zip
+        uses: svenstaro/upload-release-action@2.7.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./goofmod.zip
+          asset_name: goofmod
+          tag: "Build"
+          overwrite: true
