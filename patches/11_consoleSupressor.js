@@ -7,10 +7,10 @@
 // All the messages here are useless and just spam the console
 // Some filters are not included to keep the list small
 const messagesToFilter = [
-    "[GatewaySocket]",
-    "[RTC",
-    "[Analytics",
-    "[Unified"
+    "[Gate", // [GatewaySocket]
+    "[RTC",  // [RTCConnection]
+    "[Anal", // [Analytics]
+    "[Unif"  // [UnifiedConnection]
 ];
 
 function filterConsoleMessages() {
