@@ -4,7 +4,7 @@ const prod = !process.env.ROLLUP_WATCH;
 export default [{
     input: './src/lib.js',
     output: {
-      file: './dist/0_goofmod.js',
+      file: './dist/BL0_goofmod.js',
       format: 'iife',
       name: 'goofmod',
       freeze: false, 
