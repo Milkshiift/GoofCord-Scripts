@@ -2,7 +2,7 @@
   "name": "GoofMod",
   "version": "1.0.0",
   "description": "GoofCord helper mod",
-  "main": "dist/0_goofmod.js",
+  "main": "dist/BL0_goofmod.js",
   "type": "module",
   "scripts": {
     "build": "rollup -c",

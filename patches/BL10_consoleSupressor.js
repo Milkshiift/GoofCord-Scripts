@@ -10,7 +10,8 @@ const messagesToFilter = [
     "[Gate", // [GatewaySocket]
     "[RTC",  // [RTCConnection]
     "[Anal", // [Analytics]
-    "[Unif"  // [UnifiedConnection]
+    "[Unif", // [UnifiedConnection]
+    "[Str"   // [StreamTile]
 ];
 
 function filterConsoleMessages() {
