@@ -1,5 +1,5 @@
 name: Build and Zip
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -19,16 +19,16 @@ jobs:
         run: pnpm run build
 
       - name: Create Zip File
-        uses: montudor/action-zip@v1.0.0
+        uses: vimtor/action-zip@v1
         with:
           files: ./dist ./patches
-          zipFile: 'goofmod.zip'
+          dest: goofmod.zip
 
       - name: Upload Zip
         uses: svenstaro/upload-release-action@2.7.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./goofmod.zip
-          asset_name: goofmod
+          file: ${{ github.workspace }}/goofmod.zip
+          asset_name: goofmod.zip
           tag: "Build"
           overwrite: true
