@@ -5,8 +5,8 @@
  */
 
 function patchScreenshareQuality(responseParams) {
-    window.goofmod.log("[ScreenshareQualityPatch] Loading screenshare quality patch...");
-    const StreamQuality = window.goofmod.find(m => m.prototype?.getVideoQuality);
+    console.log("[ScreenshareQualityPatch] Loading screenshare quality patch...");
+    const StreamQuality = Vencord.Webpack.find(m => m.prototype?.getVideoQuality);
     const ASPECT_RATIO = screen.width / screen.height;
     const width = Math.round(responseParams.height * ASPECT_RATIO);
 
@@ -57,8 +57,9 @@ function patchScreenshareQuality(responseParams) {
 
 // Setting default settings
 patchScreenshareQuality({
-    framerate: 60,
+    framerate: 30,
     height: 1080
 });
 
-window.patchScreenshareQuality = patchScreenshareQuality;
+window.ScreenshareQuality = {};
+window.ScreenshareQuality.patchScreenshareQuality = patchScreenshareQuality;
