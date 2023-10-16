@@ -20,5 +20,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ github.workspace }}/patches.zip
           asset_name: patches.zip
-          tag: "Build"
+          tag: "Main"
           overwrite: true
