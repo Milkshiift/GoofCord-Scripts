@@ -1,15 +1,15 @@
 /**
  * @name ConsoleSupressor
  * @description Suppresses Discord logger
- * @version 2.0.0
+ * @version 2.1.0
  */
 
 const patches = [
     {
-        find: "=console)[",
+        find: "console[_]",
         replacement: [
             {
-                match: /\(.=console.{53}/,
+                match: /&&console(.*?)\).*?\)/,
                 replace: ""
             }
         ],
