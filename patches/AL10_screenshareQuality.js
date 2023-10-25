@@ -9,7 +9,7 @@ var y=["a","b","i"],n=new Map;function j(s,t,o,r,i){let e=n.get(t)?.[s];if(!e)re
 
 function patchScreenshareQuality(responseParams) {
     console.log("[ScreenshareQualityPatch] Loading screenshare quality patch...");
-    const StreamQuality = Vencord.Webpack.find(m => m.prototype?.getVideoQuality);
+    const StreamQuality = Vencord.Webpack.findByProps("VIDEO_QUALITY_MODES_TO_OVERWRITES").VideoQualityManager;
     const ASPECT_RATIO = screen.width / screen.height;
     const width = Math.round(responseParams.height * ASPECT_RATIO);
 
