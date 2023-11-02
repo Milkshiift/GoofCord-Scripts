@@ -56,20 +56,20 @@ document.onkeyup = function(e) {
 };
 
 let lockIcon, discordSvg;
-const waitForSvgHolder = setInterval(async () => {
+const waitForDMButton = setInterval(async () => {
     // Waiting until svg holder appears
-    const svgHolder = document.querySelector('div[aria-label="Direct Messages"] > div');
-    if (svgHolder) {
-        clearInterval(waitForSvgHolder);
+    const dmButton = document.querySelector('div[data-list-item-id="guildsnav___home"]');
+    if (dmButton) {
+        clearInterval(waitForDMButton);
 
         lockIcon = document.createElement('p');
-        svgHolder.appendChild(lockIcon);
+        dmButton.appendChild(lockIcon);
         lockIcon.style.fontSize = "1.5em";
         lockIcon.style.opacity = "0";
         lockIcon.style.position = "fixed";
         lockIcon.style.transition = "opacity 0.25s ease-in-out";
         lockIcon.textContent = "🔒";
-        discordSvg = svgHolder.querySelector('svg');
+        discordSvg = dmButton.querySelector('svg');
         discordSvg.style.opacity = "1";
         discordSvg.style.position = "fixed";
         discordSvg.style.transition = "opacity 0.25s ease-in-out";
