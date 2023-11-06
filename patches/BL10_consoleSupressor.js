@@ -14,5 +14,15 @@ const patches = [
             }
         ],
         plugin: 'ConsoleSupressor'
+    },
+    {
+        find: "getDetectableGames(){",
+        replacement: [
+            {
+                match: /(getDetectableGames\(\)\{)([\s\S]*?)(},reportUnverifiedGame)/,
+                replace: "$1$3"
+            }
+        ],
+        plugin: 'ConsoleSupressor'
     }
 ];
