@@ -34,7 +34,7 @@ const patches = [
             },
             {
                 match: /("MESSAGE_UPDATE",guildId:(.*?)message:)(.)/,
-                replace: "$1window.MessageEncryption.modifyMessageObject($3)"
+                replace: "$1{...$3,content:window.goofcord.decryptMessage($3.content)}"
             }
         ],
         plugin: "MessageEncryption"
