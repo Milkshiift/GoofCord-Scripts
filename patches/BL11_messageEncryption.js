@@ -1,7 +1,7 @@
 /**
  * @name MessageEncryption
  * @description Encrypts messages
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 const patches = [
@@ -52,12 +52,12 @@ Vencord.Api.MessageEvents.addPreEditListener(async (_cid, _mid, msg) => {
 
 let encryptionEnabled = false;
 
-document.onkeyup = function(e) {
-    if (e.key === 'F10') {
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'F10') {
         encryptionEnabled = !encryptionEnabled;
         changeDiscordIcon();
     };
-};
+});
 
 let lockIcon, discordSvg;
 const waitForDMButton = setInterval(async () => {
