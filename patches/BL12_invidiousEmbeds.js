@@ -11,7 +11,7 @@ const patches = [
         replacement: [
             {
                 match: /(:.,src:.\.url)/,
-                replace: "$1.replace('https://www.youtube.com', 'https://iv.nboeck.de')+'?player_style=youtube'"
+                replace: "$1.replace('https://www.youtube.com', 'https://inv.zzls.xyz')+'?player_style=youtube'"
             }
         ],
         plugin: "InvidiousEmbeds"
