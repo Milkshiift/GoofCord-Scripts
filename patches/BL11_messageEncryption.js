@@ -1,7 +1,7 @@
 /**
  * @name MessageEncryption
  * @description Encrypts messages
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 const patches = [
@@ -41,14 +41,14 @@ const patches = [
     }
 ];
 
-Vencord.Api.MessageEvents.addPreSendListener(async (_, msg) => {
-    if (!encryptionEnabled) return;
-    msg.content = await window.goofcord.encryptMessage(msg.content);
-});
-Vencord.Api.MessageEvents.addPreEditListener(async (_cid, _mid, msg) => {
-    if (!encryptionEnabled) return;
-    msg.content = await window.goofcord.encryptMessage(msg.content);
-});
+function decryptMessages(messages) {
+    for (let i = 0; i < messages.length; i++) {
+        messages[i].content = window.goofcord.decryptMessage(messages[i].content);
+    }
+    return messages;
+}
+window.MessageEncryption = {};
+window.MessageEncryption.decryptMessages = decryptMessages;
 
 let encryptionEnabled = false;
 
@@ -77,6 +77,15 @@ const waitForDMButton = setInterval(async () => {
         discordSvg.style.opacity = "1";
         discordSvg.style.position = "fixed";
         discordSvg.style.transition = "opacity 0.25s ease-in-out";
+
+        Vencord.Api.MessageEvents.addPreSendListener(async (_, msg) => {
+            if (!encryptionEnabled) return;
+            msg.content = await window.goofcord.encryptMessage(msg.content);
+        });
+        Vencord.Api.MessageEvents.addPreEditListener(async (_cid, _mid, msg) => {
+            if (!encryptionEnabled) return;
+            msg.content = await window.goofcord.encryptMessage(msg.content);
+        });
     }
 }, 1000);
 
@@ -92,13 +101,3 @@ function changeDiscordIcon() {
         discordSvg.style.opacity = "1";
     }
 }
-
-function decryptMessages(messages) {
-    for (let i = 0; i < messages.length; i++) {
-        messages[i].content = window.goofcord.decryptMessage(messages[i].content);
-    }
-    return messages;
-}
-
-window.MessageEncryption = {};
-window.MessageEncryption.decryptMessages = decryptMessages;
