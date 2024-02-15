@@ -1,12 +1,12 @@
 /**
  * @name ConsoleSupressor
  * @description Suppresses Discord logger
- * @version 2.1.0
+ * @version 2.1.1
  */
 
 const patches = [
     {
-        find: "console[_]",
+        find: ".setLogFn",
         replacement: [
             {
                 match: /&&console(.*?)\).*?\)/,
