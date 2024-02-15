@@ -1,5 +1,6 @@
 name: Zip and Publish
-on: [workflow_dispatch]
+on:
+  push
 
 jobs:
   build:
