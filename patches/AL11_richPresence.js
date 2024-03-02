@@ -2,6 +2,7 @@
  * @name RichPresence
  * @description Adds arRPC support
  * @version 1.0.0
+ * @maxGCVer 1.2.0
  */
 
 const RpcUtils = Vencord.Webpack.findByPropsLazy("fetchApplicationsRPC", "getRemoteIconURL");
