@@ -26,16 +26,3 @@ const patches = [
         plugin: 'ConsoleSupressor'
     }
 ];
-
-// Temporary fix for context menu twitching
-var styles = `
-    [class^="scroller"] {
-        transform: none !important;
-        -webkit-backface-visibility: unset !important;
-        -webkit-perspective: none !important;
-    }
-`
-
-var styleSheet = document.createElement("style")
-styleSheet.innerText = styles
-document.head.appendChild(styleSheet)
